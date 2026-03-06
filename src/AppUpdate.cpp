@@ -36,18 +36,20 @@ void App::Update() {
   m_Bee->Play();
 
   // --- Phase 5: Open doors on collision ---
-  for (auto &door : m_Doors) {
-    if (m_Giraffe->IfCollides(door)) {
-      door->SetImage(GA_RESOURCE_DIR "/Image/Character/door_open.png");
+  if(m_Doors[0]->GetVisibility()) {
+    for (auto &door : m_Doors) {
+      if (m_Giraffe->IfCollides(door)) {
+        door->SetImage(GA_RESOURCE_DIR "/Image/Character/door_open.png");
+      }
     }
   }
 
   // --- Phase 6: Countdown ball plays once then stops at OK ---
-  if (m_Ball) {
+  static bool isFirst = true;
+  if (m_Phase == Phase::COUNTDOWN && isFirst) {
     m_Ball->SetVisible(true);
-    if (!m_Ball->IfAnimationEnds()) {
       m_Ball->Play();
-    }
+    isFirst = false;
   }
 
   /*

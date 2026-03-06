@@ -41,9 +41,9 @@ void App::Start() {
 
   // Phase 6: The counting down ball
   std::vector<std::string> ballImages;
-  ballImages.push_back(GA_RESOURCE_DIR "/Image/Character/ball-1.png");
-  ballImages.push_back(GA_RESOURCE_DIR "/Image/Character/ball-2.png");
   ballImages.push_back(GA_RESOURCE_DIR "/Image/Character/ball-3.png");
+  ballImages.push_back(GA_RESOURCE_DIR "/Image/Character/ball-2.png");
+  ballImages.push_back(GA_RESOURCE_DIR "/Image/Character/ball-1.png");
   ballImages.push_back(GA_RESOURCE_DIR "/Image/Character/ball-ok.png");
 
   m_Ball = std::make_shared<AnimatedCharacter>(ballImages);
